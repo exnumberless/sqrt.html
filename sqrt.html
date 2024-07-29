@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Square root</title>
+</head>
+
+<body>
+    <form id="input_form">
+        <label for="n">Square root target:</label><br>
+        <input type="number" id="n" name="n"><br><br>
+
+        <label for="err">Decimal point precision (positive integer):</label><br>
+        <input type="number" id="err" name="err"><br><br>
+
+        <input id="submit" type="button" value="="> <span id="output">0</span>
+    </form>
+</body>
+
+</html>
+
+
+<script>
+    document.getElementById('submit').addEventListener('click', function (e) {
+        const number = parseFloat(document.getElementById('n').value);
+        const err = parseInt(document.getElementById('err').value);
+        console.log(number);
+        console.log(err);
+        const guesses = [];
+        guesses.push(1);
+        let lastElemIndex = guesses.length - 1
+        let g = guesses[lastElemIndex]
+        console.log(Math.abs(number - Math.pow(guesses[lastElemIndex], 2)));
+        while (Math.abs(number - Math.pow(guesses[lastElemIndex], 2)) > Math.pow(10, -err)) {
+            g = guesses[lastElemIndex];
+            guesses.push((number / g + g) / 2);
+            lastElemIndex = guesses.length - 1;
+            console.log(g);
+        }
+        document.getElementById('output').innerText = guesses.pop()
+    });
+</script>
