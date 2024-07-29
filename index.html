@@ -2,18 +2,33 @@
 <html>
 
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Square root</title>
+    <style>
+        * {
+            font-size: xx-large;
+        }
+
+        #input_form {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+    </style>
+
 </head>
 
 <body>
     <form id="input_form">
         <label for="n">Square root target:</label><br>
-        <input type="number" id="n" name="n"><br><br>
+        <input type="number" id="n" name="n" inputmode="numeric"><br><br>
 
         <label for="err">Decimal point precision (positive integer):</label><br>
-        <input type="number" id="err" name="err"><br><br>
-
-        <input id="submit" type="button" value="="> <span id="output">0</span>
+        <input type="number" id="err" name="err" inputmode="numeric"><br><br>
+        <p>
+            <input id="submit" type="button" value="="> <span id="output">0</span>
+        </p>
     </form>
 </body>
 
