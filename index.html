@@ -39,7 +39,8 @@
 <script>
     document.getElementById('submit').addEventListener('click', function (e) {
         const number = parseFloat(document.getElementById('n').value);
-        const err = parseInt(document.getElementById('err').value);
+        const err_in = parseInt(document.getElementById('err').value);
+        const err = Math.min(err_in, 10);
         console.log(number);
         console.log(err);
         const guesses = [];
